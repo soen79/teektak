@@ -1,0 +1,34 @@
+package controllers
+
+import play.api.mvc.Controller
+import play.api.mvc.Action
+import play.api.libs.json.Json
+import models.Result
+import domain.Client
+
+/**
+ * Controller class that returns all teektak clients 
+ */
+object Clients extends Controller {
+
+  def perform = Action{
+     println("Clients Controller - endpoint Handler invoked") 
+	 
+     implicit val b =  Result.find("ALL")
+    
+     /*
+     // extract all the names from the Client objects
+     val clientNames = b.map(_.name)
+     
+     val clients = Json.obj("clients" -> clientNames)
+     
+     Ok(Json.toJson(clients)) // must be the last statement
+ */
+     
+     implicit val clientFormat = Json.format[Client]  // works on a 'case' class
+     
+     //http://stackoverflow.com/questions/17683939/serializing-a-scala-list-to-json-in-play2
+   
+      Ok(Json.toJson(personFormat)) // must be the last statement
+  }
+}

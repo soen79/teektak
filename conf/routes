@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET  /               controllers.Application.index
+
+#----------------------------------------
+# Client related services
+#----------------------------------------
+#--GET FULL LIST OF CLIENTS
+GET  /clients/       controllers.Clients.perform
+
+#----------------------------------------
+# Assets
+#----------------------------------------
+GET  /assets/*file   controllers.Assets.at(path="/public", file)
+
+#GET  /search/:term   controllers.Search.perform(term:String)
+#GET  /search/        controllers.Search.perform(term:String="")
