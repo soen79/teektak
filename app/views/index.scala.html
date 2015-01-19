@@ -4,16 +4,18 @@
 	<div data-ng-controller="SearchController">
         <!-- input data-ng-model="input" data-ng-change="doSearch(input)" autofocus -->
         <!-- h2>There are {{results.length}} clients</h2 -->
-        <h2>Your clients:</h2>
         
-        <table>
-         <tr><th>Name</th><th>Address</th><th>Phone</th></tr>
-         <tr data-ng-repeat="client in results.clients">
-             <td>{{client.name}}</td>
-             <td>{{client.street}}</td>
-             <td>{{client.phone1}}</td>
-         </tr>
-        </table>
+        <h2>Your clients:</h2>
+        <div id="clientTable" style="width:960px;margin:-10px auto 0;">
+            <table>
+	         <tr><th>Name</th><th>Address</th><th>Phone</th></tr>
+	         <tr data-ng-repeat="client in results.clients">
+	             <td><a href="/clients">{{client.name}}</a></td>
+	             <td>{{client.street}}</td>
+	             <td>{{client.phone1}}</td>
+	         </tr>
+	        </table>
+        </div>
     </div>
    
 }
